@@ -1,0 +1,27 @@
+<div>
+	<ul>
+		<li><%= link_to "Abrir Chamado", new_chamado_path %></li>
+		<% if session[:adm] %>
+			<li><%= link_to "Chamados", chamados_path %></li>
+			<li><%= link_to "Usuários", usuarios_path %></li>
+		<% end %>
+		<li><%= link_to "Log Out", sessions_path, :method => :delete %></li>
+	</ul>
+</div>
+<hr>
+<div>
+	<h2>Chamados Abertos</h2>
+	<ul>
+		<% @chamados.each do |chamado| %>
+			<li>
+				<p>
+					<%=l chamado.created_at, :format => :short %> - <%= chamado.nome + "||" + chamado.coletivo %>
+					<br />
+					<%= link_to "Detalhes", chamado %>&nbsp;
+					<%= link_to "Editar", edit_chamado_path(chamado) %>&nbsp;
+					<%= link_to "Apagar", chamado, :confirm => 'Tem certeza que deseja apagar esse chamado?', :method => :delete %>					
+				</p>
+			</li>
+		<% end %>
+	</ul>
+</div>

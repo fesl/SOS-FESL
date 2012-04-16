@@ -1,0 +1,9 @@
+<h1>Novo usuário</h1>
+
+<%= render :partial => 'form', :locals => {:botao => 'Salvar!'} %>
+
+<% if @usuario_atual %>
+	<%= link_to 'Voltar', usuarios_path %>
+<% else %>
+	<%= link_to 'Voltar', new_session_path %>
+<% end %>

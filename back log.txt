@@ -1,0 +1,16 @@
+CHAMADOS
+	Filtros na tela inicial:
+	- Assunto
+	- Responsável
+	- Status
+
+USUARIOS
+	Aplicar permissões.
+
+HOME
+	Alterar as views onde os usuários da FESL têm acesso a mais informação que o usuário FDE:
+	- Gerenciamento de usuários
+  	- Apagar um chamado (o usuário que criou, independente da permissão, pode apagar tbm)
+	- Editar um chamado (o usuário que criou, independente da permissão, pode editar tbm)
+
+

@@ -1,0 +1,32 @@
+<h1>Chamado número: <%= @chamado.id %></h1>
+
+<p>
+	Responsável: 
+	<%= !@responsavel.nil? ? @responsavel.usuario.nome : link_to("Pegar", new_responsabilidade_path(@usuario_atual, :chamado_id => @chamado.id)) %>
+</p>
+
+<p>
+	Status: <%= @chamado_status.nome %>
+</p>
+
+<p>
+	Do tipo: <%= @chamado_tipo.nome %>
+</p>
+
+<p>
+	Aberto por: <%= @chamado.nome %>
+</p>
+
+<p>
+	Do coletivo: <%= @chamado.coletivo %>
+</p>
+
+<p>
+	Pela frente: <%= @chamado.frente %>
+</p>
+
+<p>
+	Assunto: <%= @chamado.descricao %>
+</p>
+
+<%= link_to "Voltar", :back %>

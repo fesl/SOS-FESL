@@ -1,0 +1,35 @@
+<h1><%= head %></h1>
+<hr>
+<% form_for(@chamado) do |chamado| %>
+	<%= chamado.error_messages %>
+
+ 	<p>
+    	<%= chamado.label :nome %><br />
+    	<%= chamado.text_field :nome %>
+  	</p>
+  	<p>
+    	<%= chamado.label :coletivo %><br />
+    	<%= chamado.text_field :coletivo %>
+  	</p>
+  	<p>
+    	<%= chamado.label :frente %><br />
+    	<%= chamado.text_field :frente %>
+  	</p>
+  	<p>
+  		<%= chamado.label :chamado_tipos_id, "Tipo" %><br />
+  		<%= chamado.select :chamado_tipos_id, @chamado_tipos.collect{|tipo| [tipo.nome, tipo.id]}, 
+  			:include_blank => true 
+  		%>
+  	</p>
+  	<p>
+		<%= chamado.label :descricao, "Descrição" %><br />
+		<%= chamado.text_area :descricao, :rows => 6 %>
+	</p>
+	<p>
+		<%= chamado.submit botao, :onclick => 'alert("Chamado criado com sucesso!")' %>
+  	</p>
+  	<hr>
+  	<p>
+  		<%= link_to "Voltar", :back %>
+  	</p>
+<% end %>

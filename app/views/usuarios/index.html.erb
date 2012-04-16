@@ -1,0 +1,29 @@
+<h2>Usuários</h2>
+
+<% @usuarios.each do |usuario| %>
+    <p>
+    	<b>Nome: </b>
+		<%=h usuario.nome %>
+	</p>
+	<p>
+		<b>Login: </b>
+    	<%=h usuario.login %>
+	</p>
+	<p>
+		<b>E-mail: </b>
+    	<%=h usuario.email %>
+	</p>
+	<p>
+		<b>ADM: </b>
+		<% bool = usuario.adm ? 'Sim' : 'Não' %>
+    	<%=h bool %>
+	</p>
+    <%= link_to 'Detalhes', usuario %>
+    <%= link_to 'Editar', edit_usuario_path(usuario) %>
+    <%= link_to 'Apagar', usuario, :confirm => 'Tem certeza?', :method => :delete %>
+	<hr>
+<% end %>
+<br/>
+
+<%= link_to 'Voltar', root_path %>
+<%= link_to 'Novo usuario', new_usuario_path %>

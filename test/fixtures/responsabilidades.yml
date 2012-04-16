@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  inicio: 2011-11-15
+  saida: 2011-11-15
+  usuario: 
+  chamado: 
+
+two:
+  inicio: 2011-11-15
+  saida: 2011-11-15
+  usuario: 
+  chamado: 

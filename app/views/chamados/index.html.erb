@@ -1,0 +1,22 @@
+<h1>Chamados</h1>
+<hr>
+<div>
+	<ul>
+		<% @chamados.each do |chamado| %>
+			<li>
+				<p>
+					<%=l chamado.created_at, :format => :short %> - <%= chamado.nome + "||" + chamado.coletivo %>	
+					<br />
+					<%= link_to "Detalhes", chamado %>&nbsp;
+					<%= link_to "Editar", edit_chamado_path(chamado) %>&nbsp;
+					<%= link_to "Apagar", chamado, :confirm => 'Tem certeza que deseja apagar esse chamado?', 
+						:method => :delete 
+					%>					
+				</p>
+			</li>
+		<% end %>
+	</ul>
+</div>
+<hr>
+<%= link_to "Voltar", root_path %>&nbsp;
+<%= link_to "Novo Chamado", new_chamado_path %>

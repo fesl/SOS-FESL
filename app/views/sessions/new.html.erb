@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<% form_tag :controller => :sessions, :action => :create do %>
+	<p>
+		<label for="login">Nome de usuário ou e-mail</label><br/>
+		<%= text_field_tag 'login' %>
+	</p>
+	<p>
+		<label for="senha">Senha</label><br/>
+		<%= password_field_tag 'senha' %>
+	</p>
+	<p>
+		<%= submit_tag 'Log On!' %>
+	</p>
+	<p>
+		<%= link_to "Cadastre-se", :controller => "usuarios", :action => "new" %>
+	</p>
+<% end %>
