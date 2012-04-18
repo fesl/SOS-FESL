@@ -9,7 +9,7 @@ class ChamadosController < ApplicationController
 		@chamado = Chamado.find(params[:id])
 		@chamado_tipo = ChamadoTipos.find(@chamado.chamado_tipos_id)
 		@chamado_status = ChamadoStatus.find(@chamado.chamado_status_id)
-		@responsavel = Responsabilidade.first(:conditions => ["chamado_id = ?", @chamado.id])
+		@responsabilidade = Responsabilidade.first(:conditions => ["chamado_id = ?", @chamado.id])
 	end
 	
 	def new
@@ -21,7 +21,7 @@ class ChamadosController < ApplicationController
   		@chamado = Chamado.new(params[:chamado])
   		
 		if @chamado.save
-    		redirect_to(root_path, :notice => @chamado)
+    		redirect_to(@chamado, :notice => 'Chamado criado com sucesso!')
   		else
     		render :action => "new"
     	end
@@ -44,7 +44,9 @@ class ChamadosController < ApplicationController
   	
   	def destroy
 	    @chamado = Chamado.find(params[:id])
+	    @responsabilidade = Responsabilidade.first(:conditions => ["chamado_id = ?", @chamado.id])
+	    @responsabilidade.destroy
 	    @chamado.destroy
-	    redirect_to(root_path)
+	    redirect_to(chamados_path)
 	end
 end

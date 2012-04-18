@@ -2,7 +2,13 @@
 
 <p>
 	Responsável: 
-	<%= !@responsavel.nil? ? @responsavel.usuario.nome : link_to("Pegar", new_responsabilidade_path(@usuario_atual, :chamado_id => @chamado.id)) %>
+	<% if @usuario_atual.usuario_tipos_id == 1 %>
+		<%= !@responsabilidade.nil? ? @responsabilidade.usuario.nome : link_to("Pegar", 
+			new_responsabilidade_path(@usuario_atual, :chamado_id => @chamado.id)) 
+		%>
+	<% else %>
+		Ninguém abraçou a causa ainda.
+	<% end %>
 </p>
 
 <p>
@@ -29,4 +35,4 @@
 	Assunto: <%= @chamado.descricao %>
 </p>
 
-<%= link_to "Voltar", :back %>
+<%= link_to "OK", root_path %>

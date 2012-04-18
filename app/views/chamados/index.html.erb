@@ -7,12 +7,7 @@
 				<p>
 					<%=l chamado.created_at, :format => :short %> - <%= chamado.nome + "||" + chamado.coletivo %>	
 					<br />
-					<%= link_to "Detalhes", chamado %>&nbsp;
-					<%= link_to "Editar", edit_chamado_path(chamado) %>&nbsp;
-					<%= link_to "Apagar", chamado, :confirm => 'Tem certeza que deseja apagar esse chamado?', 
-						:method => :delete 
-					%>					
-				</p>
+					<%= link_to "Detalhes", chamado %>
 			</li>
 		<% end %>
 	</ul>

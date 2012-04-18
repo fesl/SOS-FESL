@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions, :path_names => {:new => "login"}
   map.resources :usuarios, :path_names => {:new => "novo", :show => "detalhes", :edit => "editar"}
   map.resources :chamados, :path_names => {:new => "novo", :show => "detalhes", :edit => "editar"} 
-  
+  map.resources :perfils, :as => "perfil"
   map.resources :responsabilidades
   
   map.connect ':controller/:action/:id'
